@@ -1,0 +1,34 @@
+:root {
+    --header-bg: #000080;
+    --header-font-color: #fff;
+}
+
+header {
+    color: var(--header-font-color);
+    background-color: var(--header-bg);
+}
+
+.intro {
+    padding-top: 200px;
+}
+
+.carousel {
+    margin-bottom: 4rem;
+  }
+
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  
+.carousel-item {
+    height: 32rem;
+  }
+
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
