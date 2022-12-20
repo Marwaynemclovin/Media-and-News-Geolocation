@@ -7,3 +7,7 @@ header {
     color: var(--header-font-color);
     background-color: var(--header-bg);
 }
+
+.intro {
+    padding-top: 200px;
+}
