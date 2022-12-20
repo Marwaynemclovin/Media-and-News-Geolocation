@@ -1,0 +1,9 @@
+:root {
+    --header-bg: #000080;
+    --header-font-color: #fff;
+}
+
+header {
+    color: var(--header-font-color);
+    background-color: var(--header-bg);
+}
