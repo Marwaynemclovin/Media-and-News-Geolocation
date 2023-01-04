@@ -28,7 +28,7 @@ function secondFetch(lat, lon) {
           console.log(data);
           var weatherElDiv = document.createElement('div');
                   weatherElDiv.innerHTML = `
-                  <div class="card" style="width: 18rem;">
+                  <div class="card" style="width: 15rem;">
                     <div class="card-body">
                       <h5 class="card-title">${data.city.name}</h5>
                       <img src='https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png' alt=${data.list[0].weather.description}''>
