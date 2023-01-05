@@ -26,7 +26,7 @@ function getWeatherApi() {
         var lat = data[0].lat;
         var lon = data[0].lon;
 
-        // Second function calll to fetch the weather data fort the city using the lat and lon
+        // Second function call to fetch the weather data fort the city using the lat and lon
         secondFetch(lat,lon);
       })
   })
@@ -55,7 +55,7 @@ function secondFetch(lat, lon) {
               <div class="card-body">
                 <h5 class="card-title">${data.city.name}</h5>
                 <img src='https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png' alt=${data.list[0].weather.description}''>
-                <p class="card-text">Currently in ${data.city.name}, it feels like ${data.list[0].main.feels_like}C</p>
+                <p class="card-text">Currently in ${data.city.name}, it feels like ${Math.trunc(data.list[0].main.feels_like)}°C</p>
               </div>
             </div>`;
             
