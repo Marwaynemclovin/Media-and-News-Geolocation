@@ -41,6 +41,6 @@ border: solid black;
 }
 
 .answers:hover {
-color: black;
-background-color: white;
+  color: var(--off-black);
+  background-color: var(--off-white);
 }
