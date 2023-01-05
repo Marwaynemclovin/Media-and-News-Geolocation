@@ -1,4 +1,6 @@
-
+var searchbtn = document.getElementById("searchbtn")
+var searchbox = document.getElementById("searchcontent")
+var usertext;
 var requestUrl = "https://api.api-ninjas.com/v1/trivia?category=peopleplaces";
 var trivRe = document.getElementById('trivRe');
 var question1 = document.getElementById('trivQ1')
@@ -48,3 +50,27 @@ function populateTriv() {
  }
 trivRe.addEventListener('click', populateTriv);
 populateTriv ()
+
+function savesearch() {
+  var currentsearch = searchbox.textContent
+  localStorage.setItem("currentsearch", currentsearch);
+  var searchhistory = localStorage.getItem("searchhistory");
+    if (searchhistory !== null) {
+    searchhistory = JSON.parse(localStorage.getItem("searchhistory"))
+    } else {
+    searchhistory = ["Sydney"];
+    }
+  searchhistory.push(currentsearch)
+  if (searchhistory.length > 5) {
+  searchhistory.shift()
+  }
+  localStorage.setItem("searchhistory", JSON.stringify(searchhistory));
+}
+
+searchbox.addEventListener('input', function handleChange(event) {
+  usertext = event.target.value
+  event.target.textContent = usertext.trim()
+});
+
+searchbtn.addEventListener('click', savesearch);{
+}
