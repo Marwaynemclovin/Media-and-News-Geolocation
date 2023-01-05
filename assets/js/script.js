@@ -1,41 +1,42 @@
-var weatherEl = document.getElementById("weatherCard")
+var mainWeatherDiv = document.getElementById('mainWeatherDiv');
+
+const apiKey = "c73b072cff0fd87e69368bffee7e4662";
+var fiveCities = ['Sydney', 'Adelaide', 'Melbourne', 'Brisbane', 'Perth'];
 
 function getWeatherApi() {
-    var requestCoords = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=c73b072cff0fd87e69368bffee7e4662`;
-    var weatherData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${c73b072cff0fd87e69368bffee7e4662}`
   
-    fetch(requestCoords)
-      .then(function (response) {
+  fiveCities.forEach((city) => {
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=c73b072cff0fd87e69368bffee7e4662`)
+      .then(function(response) {
         return response.json();
       })
-      .then(function (data) {
-        // ASSIGN VAR FOR LAT AND LON
-        var lat = data.coords.lat;
-        var lon = data.coords.lon;
-        secondFetch(lat, lon);
-        for (var i = 0; i < data.length; i++) {
-         weatherEl.innerHTML = `
-         <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">CITY NAME</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>`
-        }
-      });
-  }
+      .then(function(data) {
+        var lat = data[0].lat;
+        var lon = data[0].lon;
+        secondFetch(lat,lon);
+      })
+  })
+};
   
-  function secondFetch(lat, lon) {
-    //second fetch 
-    fetch(weatherData)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function (data){
-            console.log(lat, lon);
-        })
-  }
+function secondFetch(lat, lon) {
+  var weatherData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+  fetch(weatherData)
+      .then(function(response){
+          return response.json();
+      })
+      .then(function (data){
+          console.log(data);
+          var weatherElDiv = document.createElement('div');
+                  weatherElDiv.innerHTML = `
+                  <div class="card" style="width: 15rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">${data.city.name}</h5>
+                      <img src='https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png' alt=${data.list[0].weather.description}''>
+                      <p class="card-text">Currently in ${data.city.name}, it feels like ${data.list[0].main.feels_like}</p>
+                    </div>
+                  </div>`;
+                  mainWeatherDiv.append(weatherElDiv);
+      })
+};
   
+getWeatherApi();
