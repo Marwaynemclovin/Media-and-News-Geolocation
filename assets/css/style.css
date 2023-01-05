@@ -1,11 +1,15 @@
 :root {
-    --header-bg: #000080;
-    --header-font-color: #fff;
+    --hard-blue: #114084;
+    --off-white: #f1f1f1;
+    --mid-blue: #3466AA;
+    --light-blue: #82b7dc;
+    --shader: #808080;
+    --off-black: #1c1c1c;
 }
 
 header {
-    color: var(--header-font-color);
-    background-color: var(--header-bg);
+    color: var(--off-white);
+    background-color: var(--hard-blue);
 }
 
 .intro {
@@ -34,13 +38,13 @@ header {
   }
 
 .answers {
-color: var(--header-bg);
-background-color: var(--header-bg);
+color: var(--hard-blue);
+background-color: var(--hard-blue);
 border-radius: 10px;
-border: solid black;
+border: solid var(--off-black);
 }
 
 .answers:hover {
-color: black;
-background-color: white;
+color: var(--off-black);
+background-color: var(--off-white);
 }
