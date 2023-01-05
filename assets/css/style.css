@@ -32,3 +32,15 @@ header {
     min-width: 100%;
     height: 32rem;
   }
+
+.answers {
+color: var(--header-bg);
+background-color: var(--header-bg);
+border-radius: 10px;
+border: solid black;
+}
+
+.answers:hover {
+color: black;
+background-color: white;
+}
