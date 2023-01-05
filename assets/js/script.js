@@ -1,3 +1,5 @@
+var searchbtn = document.getElementById("searchbtn")
+
 // Select the main div where the weather data will be displayed
 var mainWeatherDiv = document.getElementById('mainWeatherDiv');
 
@@ -66,3 +68,12 @@ function secondFetch(lat, lon) {
 
 // Call the function to retrieve data and populate the cards
 getWeatherApi();
+
+function savesearch() {
+  var search = document.getElementById("searchcontent")
+  localStorage.setItem(currentsearch, search.textContent);
+}
+
+searchbtn.addEventListener('click', savesearch);{
+  event.preventDefault()
+}
