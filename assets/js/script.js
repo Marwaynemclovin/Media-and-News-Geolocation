@@ -1,5 +1,6 @@
 var searchbtn = document.getElementById("searchbtn")
-
+var searchbox = document.getElementById("searchcontent")
+var usertext;
 // Select the main div where the weather data will be displayed
 var mainWeatherDiv = document.getElementById('mainWeatherDiv');
 
@@ -70,10 +71,25 @@ function secondFetch(lat, lon) {
 getWeatherApi();
 
 function savesearch() {
-  var search = document.getElementById("searchcontent")
-  localStorage.setItem(currentsearch, search.textContent);
+  var currentsearch = searchbox.textContent
+  localStorage.setItem("currentsearch", currentsearch);
+  var searchhistory = localStorage.getItem("searchhistory");
+    if (searchhistory !== null) {
+    searchhistory = JSON.parse(localStorage.getItem("searchhistory"))
+    } else {
+    searchhistory = ["Sydney"];
+    }
+  searchhistory.push(currentsearch)
+  if (searchhistory.length > 5) {
+  searchhistory.shift()
+  }
+  localStorage.setItem("searchhistory", JSON.stringify(searchhistory));
 }
 
+searchbox.addEventListener('input', function handleChange(event) {
+  usertext = event.target.value
+  event.target.textContent = usertext.trim()
+});
+
 searchbtn.addEventListener('click', savesearch);{
-  event.preventDefault()
 }
