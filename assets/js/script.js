@@ -93,3 +93,34 @@ searchbox.addEventListener('input', function handleChange(event) {
 
 searchbtn.addEventListener('click', savesearch);{
 }
+
+//NEWS API
+
+var city = "Sydney";
+
+$(document).ready(function(){
+  let url = "https://newsapi.org/v2/top-headlines?q="+ city +"&category=entertainment&country=au&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
+
+//Categories: business, entertainment, general, health, science, sports, technology
+
+  $.ajax({
+    url:url,
+    method:"GET",
+    dataType:"Json",
+
+    success: function(news){
+      let latestNews = news.articles;
+
+      for(var i in latestNews){
+        //News image pull
+        $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
+        //News title pull
+        $(`#titleEl-${i}`).html(`<h1>${latestNews[i].title}</h1>`)
+        //News description pull
+        $(`#descriptionEl-${i}`).html(`<p>${latestNews[i].description}</p>`)
+        //link to news page 
+        $(`#linkEl-1`).click(function() {window.location = `${latestNews[1].url}`;});
+      }
+    },
+  })
+});
