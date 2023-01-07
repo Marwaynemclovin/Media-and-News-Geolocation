@@ -1,3 +1,40 @@
+var city = "Sydney";
+$(`#page-title`).append(city);
+
+//NEWS
+
+$(document).ready(function(){
+  let url = "https://newsapi.org/v2/top-headlines?q="+ city +"&category=business&country=au&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
+
+//Categories: business, entertainment, general, health, science, sports, technology
+
+  $.ajax({
+    url:url,
+    method:"GET",
+    dataType:"Json",
+
+    success: function(news){
+      let latestNews = news.articles;
+
+      for(var i in latestNews){
+        //News image pull
+        $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
+        //News title pull
+        $(`#titleEl-${i}`).html(`<h6>${latestNews[i].title}</h6>`)
+        //News description pull
+        $(`#descriptionEl-${i}`).html(`<h6>${latestNews[i].description}</h6>`)
+        //link to news page 
+        $(`#newsEl-2`).click(function() {window.location = `${latestNews[2].url}`;});
+        $(`#newsEl-1`).click(function() {window.location = `${latestNews[1].url}`;});
+        $(`#newsEl-0`).click(function() {window.location = `${latestNews[0].url}`;});
+      }
+    },
+  })
+});
+
+
+//TRIVIA
+
 var searchbtn = document.getElementById("searchbtn")
 var searchbox = document.getElementById("searchcontent")
 var usertext;

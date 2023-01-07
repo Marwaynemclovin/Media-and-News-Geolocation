@@ -7,6 +7,7 @@
     <title>Celebrity News</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -46,43 +47,42 @@
 
 <main>
     <div class="container">
-        <h1 class="text-center py-3">
+        <h1 class="text-center py-3" id="page-title">
             Celebrity News
         </h1>
     </div>
         <div class="row pt-3">
-            <div class="col-6 border border-dark">
+            <div class="col-6 border border-dark" id="newsEl-0">
                 <div class="container">
                     <figure class="figure border border-dark">
-                        <img src="https://picsum.photos/300/200" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img id="imageEl-0" src="https://picsum.photos/300/200" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">A caption for the above image.</figcaption>
                       </figure>
-                      <h1 class="border border-dark">Main Article Text</h1>
-                      <p class="border border-dark">Main Article Opening Text <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      <h1 class="card-title" id="titleEl-0">Blog entry</h1>
+                      <p class="border border-dark" id="descriptionEl-0">Main Article Opening Text <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
             </div>
-            <div class="col-3 border border-dark">
+            <div class="col-3 border border-dark" id="newsEl-1">
                 <div class="container my-5">
                     <div class="card row flex-row">
-                        <img class="col-lg-4 card-img-start img-fluid p-0" src="https://picsum.photos/300/200"/>
+                        <img id="imageEl-1" class="col-lg-4 card-img-start img-fluid p-0" src="https://picsum.photos/300/200"/>
                         <div class="col-lg-8 card-body">
-                            <h1 class="card-title">Blog entry</h1>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <h1 class="card-title" id="titleEl-1">Blog entry</h1>
+                            <p class="card-text" id="descriptionEl-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                     </div>
-                </div>
-                <div class="container my-5 \">
-                    <div class="card row flex-row">
-                        <img class="col-lg-4 card-img-start img-fluid p-0" src="https://picsum.photos/300/200"/>
-                        <div class="col-lg-8 card-body">
-                            <h1 class="card-title">Blog entry</h1>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
+                </div>  
+            </div>
+        <div class="col-3 border border-dark" id="newsEl-2">
+            <div class="container my-5 \">
+                <div class="card row flex-row">
+                    <img id="imageEl-2" class="col-lg-4 card-img-start img-fluid p-0" src="https://picsum.photos/300/200"/>
+                    <div class="col-lg-8 card-body">
+                        <h1 class="card-title" id="titleEl-2">Blog entry </h1>
+                        <p class="card-text" id="descriptionEl-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
             </div>
-        <div class="col-3 border border-dark">
-            <p>Twitter API</p>
         </div>
     </div>
     <div class="Triv row">
