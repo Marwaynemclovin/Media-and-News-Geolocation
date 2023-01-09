@@ -1,5 +1,4 @@
 var city = "Sydney";
-$(`#page-title`).append(city);
 
 //NEWS
 
@@ -24,9 +23,11 @@ $(document).ready(function(){
         //News description pull
         $(`#descriptionEl-${i}`).html(`<h6>${latestNews[i].description}</h6>`)
         //link to news page 
-        $(`#newsEl-2`).click(function() {window.location = `${latestNews[2].url}`;});
-        $(`#newsEl-1`).click(function() {window.location = `${latestNews[1].url}`;});
-        $(`#newsEl-0`).click(function() {window.location = `${latestNews[0].url}`;});
+        $(`#newsEl-${i}`).attr("href", latestNews[i].url);
+        if(i==5){
+          break;
+        }
+
       }
     },
   })

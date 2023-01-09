@@ -1,10 +1,9 @@
-var city = "Sydney";
-$(`#page-title`).append(city);
+var country = "au";
 
 //NEWS
 
 $(document).ready(function(){
-  let url = "https://newsapi.org/v2/top-headlines?q="+ city +"&category=business&country=au&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
+  let url = "https://newsapi.org/v2/top-headlines?q=&country="+ country +"&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
 
 //Categories: business, entertainment, general, health, science, sports, technology
 
@@ -24,9 +23,11 @@ $(document).ready(function(){
         //News description pull
         $(`#descriptionEl-${i}`).html(`<h6>${latestNews[i].description}</h6>`)
         //link to news page 
-        $(`#newsEl-2`).click(function() {window.location = `${latestNews[2].url}`;});
-        $(`#newsEl-1`).click(function() {window.location = `${latestNews[1].url}`;});
-        $(`#newsEl-0`).click(function() {window.location = `${latestNews[0].url}`;});
+        $(`#newsEl-${i}`).attr("href", latestNews[i].url);
+        if(i==5){
+          break;
+        }
+
       }
     },
   })
