@@ -110,7 +110,7 @@ $(document).ready(function(){
 
     success: function(news){
       let latestNews = news.articles;
-
+      console.log(latestNews);
       for(var i in latestNews){
         //News image pull
         $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
