@@ -125,13 +125,10 @@ $(document).ready(function(){
   })
 });
 
-//Next and Prev buttons to move to
-$(document).ready(function() {
-  $(".carousel-control-next").click(function() {
-    $("#carouselNewItems").carousel("next");
-  });
-
-  $(".carousel-control-prev").click(function() {
-    $("#carouselNewItems").carousel("prev");
-  });
-});
+//Next and Prev buttons and interval for cycle
+var myCarousel = document.querySelector('#myCarousel')
+var carousel = new bootstrap.Carousel(myCarousel, {
+  interval: 2000,
+  wrap: false,
+  next: true
+})
