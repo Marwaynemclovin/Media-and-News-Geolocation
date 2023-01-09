@@ -110,7 +110,7 @@ $(document).ready(function(){
 
     success: function(news){
       let latestNews = news.articles;
-
+      console.log(latestNews);
       for(var i in latestNews){
         //News image pull
         $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
@@ -123,4 +123,15 @@ $(document).ready(function(){
       }
     },
   })
+});
+
+//Next and Prev buttons to move to
+$(document).ready(function() {
+  $(".carousel-control-next").click(function() {
+    $("#carouselNewItems").carousel("next");
+  });
+
+  $(".carousel-control-prev").click(function() {
+    $("#carouselNewItems").carousel("prev");
+  });
 });
