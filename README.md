@@ -1,6 +1,6 @@
 # Media-and-News-Geolocation
 ## Link to Deployed Application
-Deployed @ 
+Deployed @ https://marwaynemclovin.github.io/Media-and-News-Geolocation/
 
 ## Description
 A website which uses three API's. Those being OpenWeatherMap, Trivia API, and News API.
