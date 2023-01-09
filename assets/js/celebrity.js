@@ -19,9 +19,9 @@ $(document).ready(function(){
         //News image pull
         $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
         //News title pull
-        $(`#titleEl-${i}`).html(`<h6>${latestNews[i].title}</h6>`)
+        $(`#titleEl-${i}`).html(`${latestNews[i].title}`)
         //News description pull
-        $(`#descriptionEl-${i}`).html(`<h6>${latestNews[i].description}</h6>`)
+        $(`#descriptionEl-${i}`).html(`${latestNews[i].description}`)
         //link to news page 
         $(`#newsEl-${i}`).attr("href", latestNews[i].url);
         if(i==5){

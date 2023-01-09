@@ -1,9 +1,9 @@
-var city = "Sydney";
+var country = "au";
 
 //NEWS
 
 $(document).ready(function(){
-  let url = "https://newsapi.org/v2/top-headlines?q="+ city +"&category=entertainment&country=au&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
+  let url = "https://newsapi.org/v2/top-headlines?q=&category=science&country="+ country +"&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
 
 //Categories: business, entertainment, general, health, science, sports, technology
 
@@ -19,9 +19,9 @@ $(document).ready(function(){
         //News image pull
         $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
         //News title pull
-        $(`#titleEl-${i}`).html(`<h6>${latestNews[i].title}</h6>`)
+        $(`#titleEl-${i}`).html(`${latestNews[i].title}`)
         //News description pull
-        $(`#descriptionEl-${i}`).html(`<h6>${latestNews[i].description}</h6>`)
+        $(`#descriptionEl-${i}`).html(`${latestNews[i].description}`)
         //link to news page 
         $(`#newsEl-${i}`).attr("href", latestNews[i].url);
         if(i==5){
