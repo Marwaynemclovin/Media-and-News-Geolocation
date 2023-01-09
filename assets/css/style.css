@@ -73,4 +73,21 @@ background-color: var(--off-white);
   color: #323232;
 }
 
+#titleEl-0 {
+  color: var(--hard-blue);
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#titleEl-1, #titleEl-2, #titleEl-3, #titleEl-4 {
+  color: var(--hard-blue);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#descriptionEl-0 {
+  font-size: 30px;
+}
+
+
 
