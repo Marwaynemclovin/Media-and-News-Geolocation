@@ -48,3 +48,29 @@ border: solid var(--off-black);
 color: var(--off-black);
 background-color: var(--off-white);
 }
+
+.newsEl {
+  text-decoration: none;
+  color: black;
+  
+}
+
+.newsEl:hover {
+  text-decoration: none;
+  color: #323232;
+  background-color:  #f1f1f1;
+  border-radius: 20 px;
+}
+
+.featured-container {
+  max-width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+.featured-container:hover {
+  text-decoration: none;
+  color: #323232;
+}
+
+
