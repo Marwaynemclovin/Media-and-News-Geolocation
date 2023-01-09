@@ -124,3 +124,14 @@ $(document).ready(function(){
     },
   })
 });
+
+//Next and Prev buttons to move to
+$(document).ready(function() {
+  $(".carousel-control-next").click(function() {
+    $("#carouselNewItems").carousel("next");
+  });
+
+  $(".carousel-control-prev").click(function() {
+    $("#carouselNewItems").carousel("prev");
+  });
+});
