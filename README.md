@@ -47,7 +47,7 @@ Guy Anderson: https://github.com/GuyJiawei <br>
 Luke Hoole: https://github.com/Lhoole <br>
 Rachael Baihn: https://github.com/rachaelbaihn
 
-##Links to APIs
+## Links to APIs
 OpenWeatherMap: https://openweathermap.org/ <br>
 NewsAPI: https://newsapi.org/ <br>
 TrivaAPI: https://api-ninjas.com/api/trivia
