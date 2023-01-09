@@ -3,7 +3,7 @@
 Deployed @ https://marwaynemclovin.github.io/Media-and-News-Geolocation/
 
 ## Description
-A website which uses three API's. Those being OpenWeatherMap, Trivia API, and News API.
+A website which allows for users to search for local news. This is done by the user searching for the city, and related news headlines being displayed. This website was created using three API's. Those being OpenWeatherMap, Trivia API, and News API.
 
 ## Table of Contents
 [Screenshots of Application](#Screenshots-of-Application) <br>
