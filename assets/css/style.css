@@ -11,7 +11,11 @@ header {
     color: var(--off-white);
     background-color: var(--hard-blue);
 }
-
+.trivcard {
+  border-left: solid 20px var(--hard-blue);
+  border-radius: 20px;
+  margin-left: 10px
+}
 .intro {
     padding-top: 200px;
 }
@@ -88,6 +92,4 @@ background-color: var(--off-white);
 #descriptionEl-0 {
   font-size: 30px;
 }
-
-
 
