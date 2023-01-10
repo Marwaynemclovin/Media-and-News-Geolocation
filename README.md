@@ -56,7 +56,8 @@ Rachael Baihn: https://github.com/rachaelbaihn
 ## Links to APIs
 OpenWeatherMap: https://openweathermap.org/ <br>
 NewsAPI: https://newsapi.org/ <br>
-TrivaAPI: https://api-ninjas.com/api/trivia
+TrivaAPI: https://api-ninjas.com/api/trivia <br>
+Country Code API: https://public.opendatasoft.com/explore/dataset/countries-codes/table/
 
 ## License
 Copyright (c) [2022]
