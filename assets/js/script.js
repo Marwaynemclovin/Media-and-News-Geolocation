@@ -77,13 +77,14 @@ function savesearch() {
     if (searchhistory !== null) {
     searchhistory = JSON.parse(localStorage.getItem("searchhistory"))
     } else {
-    searchhistory = ["Sydney"];
+    searchhistory = ["Australia"];
     }
   searchhistory.push(currentsearch)
   if (searchhistory.length > 5) {
   searchhistory.shift()
   }
   localStorage.setItem("searchhistory", JSON.stringify(searchhistory));
+  getcountry()
 }
 
 searchbox.addEventListener('input', function handleChange(event) {
@@ -96,10 +97,11 @@ searchbtn.addEventListener('click', savesearch);{
 
 //NEWS API
 
-var usersearch = localStorage.getItem("currentsearch");
 var country = localStorage.getItem("countrycode");
-
+if (!country) country = "AU";
 function getcountry(){
+  var usersearch = localStorage.getItem("currentsearch");
+  if (!usersearch) usersearch = "australia";
   var countryURL = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=countries-codes&q="+ usersearch +"&rows=5";
   fetch(countryURL, {method: "GET",
   }) 
@@ -109,36 +111,39 @@ function getcountry(){
     .then(function (data) {
       var countrycode = data.records[0].fields.iso2_code;
       localStorage.setItem("countrycode", countrycode)
+      news()
     });
   }
 getcountry()
-
-$(document).ready(function(){
+function news(){
+  country = localStorage.getItem("countrycode")
   let url = "https://newsapi.org/v2/top-headlines?q&category=entertainment&country="+ country +"&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
 
-//Categories: business, entertainment, general, health, science, sports, technology
+  //Categories: business, entertainment, general, health, science, sports, technology
+  
+    $.ajax({
+      url:url,
+      method:"GET",
+      dataType:"Json",
+  
+      success: function(news){
+        let latestNews = news.articles;
+        console.log(latestNews);
+        for(var i in latestNews){
+          //News image pull
+          $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
+          //News title pull
+          $(`#titleEl-${i}`).html(`<h1>${latestNews[i].title}</h1>`)
+          //News description pull
+          $(`#descriptionEl-${i}`).html(`<p>${latestNews[i].description}</p>`)
+          //link to news page 
+          $(`#linkEl-1`).click(function() {window.location = `${latestNews[1].url}`;});
+        }
+      },
+    })
+  }
 
-  $.ajax({
-    url:url,
-    method:"GET",
-    dataType:"Json",
-
-    success: function(news){
-      let latestNews = news.articles;
-      console.log(latestNews);
-      for(var i in latestNews){
-        //News image pull
-        $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
-        //News title pull
-        $(`#titleEl-${i}`).html(`<h1>${latestNews[i].title}</h1>`)
-        //News description pull
-        $(`#descriptionEl-${i}`).html(`<p>${latestNews[i].description}</p>`)
-        //link to news page 
-        $(`#linkEl-1`).click(function() {window.location = `${latestNews[1].url}`;});
-      }
-    },
-  })
-});
+  $(document).ready(news)
 
 //Next and Prev buttons and interval for cycle
 var myCarousel = document.querySelector('#myCarousel')
