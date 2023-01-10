@@ -1,7 +1,9 @@
-var usersearch = localStorage.getItem("currentsearch");
 var country = localStorage.getItem("countrycode");
+if (!country) country = "AU";
 
 function getcountry(){
+  var usersearch = localStorage.getItem("currentsearch");
+  if (!usersearch) usersearch = "australia";
   var countryURL = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=countries-codes&q="+ usersearch +"&rows=5";
   fetch(countryURL, {method: "GET",
   }) 
@@ -11,12 +13,13 @@ function getcountry(){
     .then(function (data) {
       var countrycode = data.records[0].fields.iso2_code;
       localStorage.setItem("countrycode", countrycode)
+      news()
     });
   }
 getcountry()
 //NEWS
-
-$(document).ready(function(){
+function news(){
+  country = localStorage.getItem("countrycode")
   let url = "https://newsapi.org/v2/top-headlines?q=&category=sports&country="+ country +"&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
  //Categories: business, entertainment, general, health, science, sports, technology
 
@@ -44,7 +47,8 @@ $(document).ready(function(){
        }
      },
    })
- });
+ }
+$(document).ready(news);
 
 
 //TRIVIA
@@ -115,6 +119,7 @@ function savesearch() {
   searchhistory.shift()
   }
   localStorage.setItem("searchhistory", JSON.stringify(searchhistory));
+  getcountry()
 }
 
 searchbox.addEventListener('input', function handleChange(event) {
