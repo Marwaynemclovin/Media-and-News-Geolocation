@@ -1,4 +1,19 @@
-var country = "au";
+var usersearch = localStorage.getItem("currentsearch");
+var country = localStorage.getItem("countrycode");
+
+function getcountry(){
+  var countryURL = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=countries-codes&q="+ usersearch +"&rows=5";
+  fetch(countryURL, {method: "GET",
+  }) 
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var countrycode = data.records[0].fields.iso2_code;
+      localStorage.setItem("countrycode", countrycode)
+    });
+  }
+getcountry()
 
 //NEWS
 

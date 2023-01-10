@@ -1,37 +1,50 @@
-var country = "au";
+var usersearch = localStorage.getItem("currentsearch");
+var country = localStorage.getItem("countrycode");
 
+function getcountry(){
+  var countryURL = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=countries-codes&q="+ usersearch +"&rows=5";
+  fetch(countryURL, {method: "GET",
+  }) 
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var countrycode = data.records[0].fields.iso2_code;
+      localStorage.setItem("countrycode", countrycode)
+    });
+  }
+getcountry()
 //NEWS
 
 $(document).ready(function(){
   let url = "https://newsapi.org/v2/top-headlines?q=&category=sports&country="+ country +"&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
+ //Categories: business, entertainment, general, health, science, sports, technology
 
-//Categories: business, entertainment, general, health, science, sports, technology
+   $.ajax({
+     url:url,
+     method:"GET",
+     dataType:"Json",
 
-  $.ajax({
-    url:url,
-    method:"GET",
-    dataType:"Json",
+     success: function(news){
+       let latestNews = news.articles;
 
-    success: function(news){
-      let latestNews = news.articles;
+       for(var i in latestNews){
+         //News image pull
+         $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
+         //News title pull
+         $(`#titleEl-${i}`).html(`${latestNews[i].title}`)
+         //News description pull
+         $(`#descriptionEl-${i}`).html(`${latestNews[i].description}`)
+         //link to news page 
+         $(`#newsEl-${i}`).attr("href", latestNews[i].url);
+         if(i==5){
+           break;
+         }
 
-      for(var i in latestNews){
-        //News image pull
-        $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
-        //News title pull
-        $(`#titleEl-${i}`).html(`${latestNews[i].title}`)
-        //News description pull
-        $(`#descriptionEl-${i}`).html(`${latestNews[i].description}`)
-        //link to news page 
-        $(`#newsEl-${i}`).attr("href", latestNews[i].url);
-        if(i==5){
-          break;
-        }
-
-      }
-    },
-  })
-});
+       }
+     },
+   })
+ });
 
 
 //TRIVIA
@@ -95,7 +108,7 @@ function savesearch() {
     if (searchhistory !== null) {
     searchhistory = JSON.parse(localStorage.getItem("searchhistory"))
     } else {
-    searchhistory = ["Sydney"];
+    searchhistory = ["Australia"];
     }
   searchhistory.push(currentsearch)
   if (searchhistory.length > 5) {
