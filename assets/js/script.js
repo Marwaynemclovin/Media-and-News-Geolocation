@@ -96,10 +96,25 @@ searchbtn.addEventListener('click', savesearch);{
 
 //NEWS API
 
-var city = "Sydney";
+var usersearch = localStorage.getItem("currentsearch");
+var country = localStorage.getItem("countrycode");
+
+function getcountry(){
+  var countryURL = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=countries-codes&q="+ usersearch +"&rows=5";
+  fetch(countryURL, {method: "GET",
+  }) 
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var countrycode = data.records[0].fields.iso2_code;
+      localStorage.setItem("countrycode", countrycode)
+    });
+  }
+getcountry()
 
 $(document).ready(function(){
-  let url = "https://newsapi.org/v2/top-headlines?q="+ city +"&category=entertainment&country=au&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
+  let url = "https://newsapi.org/v2/top-headlines?q&category=entertainment&country="+ country +"&apiKey=1bed26309bca46a8bf7a1147ed6423aa";
 
 //Categories: business, entertainment, general, health, science, sports, technology
 
