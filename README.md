@@ -14,6 +14,12 @@ A website which allows for users to search for local news. This is done by the u
 [Credits and Resources](#License)
 
 ## Screenshots of Application
+[Home Page]![GetLocalScr](https://user-images.githubusercontent.com/112296194/211516129-6cef3c8e-2a39-440f-b204-41521ca8b01c.png) <br>
+
+[Content Page]![Screen Shot 2023-01-10 at 8 38 21 pm](https://user-images.githubusercontent.com/112296194/211516209-751f7455-5d4f-49c2-931c-0faa2c549ce3.png) <br>
+
+[Trivia Section]
+![Screen Shot 2023-01-10 at 8 38 30 pm](https://user-images.githubusercontent.com/112296194/211516283-e6d50ae7-5445-4427-8e3b-42a5af077a17.png)
 
 
 ## Local Installation
