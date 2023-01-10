@@ -110,7 +110,7 @@ $(document).ready(function(){
 
     success: function(news){
       let latestNews = news.articles;
-
+      console.log(latestNews);
       for(var i in latestNews){
         //News image pull
         $(`#imageEl-${i}`).attr("src", `${latestNews[i].urlToImage}`)
@@ -124,3 +124,11 @@ $(document).ready(function(){
     },
   })
 });
+
+//Next and Prev buttons and interval for cycle
+var myCarousel = document.querySelector('#myCarousel')
+var carousel = new bootstrap.Carousel(myCarousel, {
+  interval: 2000,
+  wrap: false,
+  next: true
+})
